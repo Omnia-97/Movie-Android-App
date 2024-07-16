@@ -15,7 +15,8 @@ import com.example.movieappandroid.model.Movie;
 
 import java.util.ArrayList;
 
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
+public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder>{
+
     private Context context;
     private ArrayList<Movie> movieArrayList;
 
@@ -27,12 +28,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     @NonNull
     @Override
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        MovieListItemBinding binding = DataBindingUtil.inflate(
-                LayoutInflater.from(parent.getContext()),
-                R.layout.movie_list_item,
-                parent,
-                false
-        );
+        MovieListItemBinding binding = DataBindingUtil
+                .inflate(
+                        LayoutInflater.from(parent.getContext()),
+                        R.layout.movie_list_item,
+                        parent,
+                        false
+                );
         return new MovieViewHolder(binding);
     }
 
@@ -40,7 +42,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
         Movie movie = movieArrayList.get(position);
         holder.movieListItemBinding.setMovie(movie);
-
     }
 
     @Override
@@ -48,18 +49,29 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         return movieArrayList.size();
     }
 
+
     public class MovieViewHolder extends RecyclerView.ViewHolder{
         private MovieListItemBinding movieListItemBinding;
 
-        public MovieViewHolder(@NonNull MovieListItemBinding movieListItemBinding) {
+        public MovieViewHolder(MovieListItemBinding movieListItemBinding) {
             super(movieListItemBinding.getRoot());
             this.movieListItemBinding = movieListItemBinding;
+
             movieListItemBinding.getRoot().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
+                    int position = getAdapterPosition();
+
+
                 }
             });
+
+
+
+
+
+
         }
     }
 }

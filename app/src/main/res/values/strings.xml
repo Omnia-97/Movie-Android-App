@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MovieAppAndroid</string>
+    <string name="api_key">f4bfbdc2321bbb554ce4a12311137853</string>
 </resources>
